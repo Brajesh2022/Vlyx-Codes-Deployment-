@@ -371,8 +371,8 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
                     message.role === "user"
                       ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white"
                       : theme === "dark"
-                        ? "bg-gray-800 text-white border border-purple-500/20"
-                        : "bg-white text-gray-800 border border-blue-200"
+                        ? "bg-neutral-800 text-white border border-purple-500/20"
+                        : "bg-white text-neutral-800 border border-blue-200"
                   } shadow-md`}
                 >
                   <div className="flex items-start gap-2">
@@ -441,7 +441,7 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`max-w-[80%] rounded-2xl p-4 ${
-                    theme === "dark" ? "bg-gray-800 text-white" : "bg-white text-gray-800"
+                    theme === "dark" ? "bg-neutral-800 text-white" : "bg-white text-neutral-800"
                   } shadow-md`}
                 >
                   <div className="flex items-center space-x-2">

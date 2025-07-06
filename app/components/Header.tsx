@@ -88,7 +88,7 @@ export default function Header() {
                       ? "text-blue-600 dark:text-blue-400"
                       : theme === "dark"
                         ? "text-gray-300 hover:text-white"
-                        : "text-gray-800 hover:text-blue-600"
+                        : "text-neutral-800 hover:text-blue-600"
                   }
                 `}
               >

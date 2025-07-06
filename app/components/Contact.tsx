@@ -75,7 +75,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+            <div className="bg-white dark:bg-neutral-800 p-8 rounded-xl shadow-lg">
               <h3 className="text-2xl font-semibold mb-6 dark:text-white">Contact Information</h3>
               <div className="space-y-6">
                 <a
@@ -109,7 +109,7 @@ export default function Contact() {
 
               {/* Social Media Links */}
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-gray-700">
-                <h4 className="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">Follow Us</h4>
+                <h4 className="text-lg font-semibold mb-4 text-neutral-800 dark:text-neutral-200">Follow Us</h4>
                 <div className="flex space-x-4">
                   <a
                     href="https://www.instagram.com/vlyxcodes"
@@ -134,7 +134,7 @@ export default function Contact() {
               </div>
 
               <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                <h4 className="text-lg font-semibold mb-2 text-gray-800 dark:text-gray-200">Our Team</h4>
+                <h4 className="text-lg font-semibold mb-2 text-neutral-800 dark:text-neutral-200">Our Team</h4>
                 <div className="space-y-2">
                   <p className="text-gray-700 dark:text-gray-300">
                     <span className="font-semibold">Founder:</span> Brajesh
@@ -153,7 +153,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+            <form onSubmit={handleSubmit(onSubmit)} className="bg-white dark:bg-neutral-800 p-8 rounded-xl shadow-lg">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">

@@ -13,26 +13,26 @@ export default function PaymentTerms() {
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-neutral-800 rounded-lg shadow">
                 <Shield className="h-12 w-12 text-blue-500 mb-4" />
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Security Deposit</h3>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-2">Security Deposit</h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   A ₹1000 / $15 security deposit is required before starting the project.{" "}
                   <span className="text-sm">(non-refundable for INR, refundable for USD)</span>
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-neutral-800 rounded-lg shadow">
                 <CreditCard className="h-12 w-12 text-blue-500 mb-4" />
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Payment Schedule</h3>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-2">Payment Schedule</h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   The remaining payment is taken after completion of the project to your satisfaction.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+              <div className="flex flex-col items-center text-center p-4 bg-white dark:bg-neutral-800 rounded-lg shadow">
                 <AlertTriangle className="h-12 w-12 text-blue-500 mb-4" />
-                <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-2">Cancellation Policy</h3>
+                <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200 mb-2">Cancellation Policy</h3>
                 <p className="text-gray-600 dark:text-gray-400">
                   If you're unsatisfied, we'll work to improve the project, but the security deposit remains
                   non-refundable for INR payments.

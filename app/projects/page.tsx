@@ -326,7 +326,7 @@ export default function ProjectsPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">{project.title}</h3>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-white mb-3">{project.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">{project.description}</p>
                   <Link
                     href={project.link}
