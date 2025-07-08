@@ -103,6 +103,25 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
     setIsLoading(true)
 
     try {
+      // Check if we're in a static environment (no API routes available)
+      const isStatic = typeof window !== 'undefined' && !window.location.hostname.includes('localhost') && !window.location.hostname.includes('vercel.app');
+      
+      if (isStatic) {
+        // Static deployment fallback
+        setTimeout(() => {
+          setMessages((prev) => [
+            ...prev,
+            {
+              id: nanoid(),
+              role: "assistant",
+              content: "Hi! I'm Luna, the AI assistant for Vlyx Codes. 🤖✨\n\n**Currently in Static Mode**: The full AI functionality is not available in this static deployment, but I'd love to help you learn more about Vlyx Codes!\n\n**What we offer:**\n- Custom Website Development\n- AI Integration Services\n- Modern Web Solutions\n- SEO Optimization\n- Responsive Design\n\n**Contact Info:**\n- Email: contact@vlyxcodes.com\n- Website: vlyxcodes.com\n\nFor the full Luna AI experience with real-time assistance, please visit our main website or contact us directly! 🚀",
+            },
+          ])
+          setIsLoading(false)
+        }, 1000)
+        return
+      }
+
       const formData = new FormData()
       formData.append(
         "messages",
@@ -175,7 +194,7 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
         {
           id: nanoid(),
           role: "assistant",
-          content: "Sorry, I encountered an error. Please try again later. 😔",
+          content: "Sorry, I encountered an error. Please try again later. 😔\n\n**For support, please contact us at:**\n- Email: contact@vlyxcodes.com\n- Website: vlyxcodes.com",
         },
       ])
     } finally {
