@@ -103,87 +103,236 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
     setIsLoading(true)
 
     try {
-      const formData = new FormData()
-      formData.append(
-        "messages",
-        JSON.stringify([...messages.filter((msg) => msg.role !== "system"), { role: "user", content: input }]),
-      )
+      let aiResponse = ""
+      let aiMode = "static"
 
-      if (selectedImage) {
-        formData.append("image", selectedImage)
+      // Try different AI approaches in order of preference
+      // 1. Try serverless functions first
+      if (await tryServerlessFunction(input)) {
+        aiResponse = await callServerlessFunction(input)
+        aiMode = "serverless"
+      }
+      // 2. Try direct API if key is available
+      else if (process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY) {
+        aiResponse = await callGoogleAIDirect(input)
+        aiMode = "google-direct"
+      }
+      // 3. Fall back to static responses
+      else {
+        await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate AI thinking
+        aiResponse = getStaticResponse(input)
+        aiMode = "static"
       }
 
-      const response = await fetch("/api/luna", {
-        method: "POST",
-        body: formData,
-      })
-
-      if (!response.ok) {
-        throw new Error("Failed to send message")
-      }
-
-      if (response.body) {
-        const reader = response.body.getReader()
-        const decoder = new TextDecoder()
-        let accumulatedResponse = ""
-
-        const assistantMessage: Message = {
-          id: nanoid(),
-          role: "assistant",
-          content: "",
-        }
-
-        setMessages((prev) => [...prev, assistantMessage])
-
-        while (true) {
-          const { value, done } = await reader.read()
-          if (done) break
-
-          const chunk = decoder.decode(value)
-          const lines = chunk.split("\n\n")
-
-          for (const line of lines) {
-            if (line.startsWith("data: ")) {
-              const data = line.slice(6)
-              if (data === "[DONE]") {
-                break
-              }
-
-              try {
-                const parsed = JSON.parse(data)
-                accumulatedResponse += parsed.text || ""
-
-                setMessages((prev) => {
-                  const updated = [...prev]
-                  const lastMessage = updated[updated.length - 1]
-                  if (lastMessage.role === "assistant") {
-                    lastMessage.content = accumulatedResponse
-                  }
-                  return updated
-                })
-              } catch (e) {
-                console.error("Error parsing chunk:", e)
-              }
-            }
-          }
-        }
-      }
-    } catch (error) {
-      console.error("Error sending message:", error)
       setMessages((prev) => [
         ...prev,
         {
           id: nanoid(),
           role: "assistant",
-          content: "Sorry, I encountered an error. Please try again later. 😔",
+          content: aiResponse,
         },
       ])
-    } finally {
-      setIsLoading(false)
-      setSelectedImage(null)
-      setImagePreview(null)
+    } catch (error) {
+      console.error("AI Error:", error)
+      
+      // Always fall back to static response on any error
+      setMessages((prev) => [
+        ...prev,
+                  {
+            id: nanoid(),
+            role: "assistant",
+            content: getStaticResponse(input),
+          },
+        ])
+      } finally {
+        setIsLoading(false)
+        setSelectedImage(null)
+        setImagePreview(null)
+      }
     }
-  }
+
+    // Try serverless function availability
+    const tryServerlessFunction = async (message: string): Promise<boolean> => {
+      try {
+        const endpoints = ["/.netlify/functions/luna-ai", "/api/edge/luna"]
+        for (const endpoint of endpoints) {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: "test" })
+          })
+          if (response.ok) return true
+        }
+        return false
+      } catch {
+        return false
+      }
+    }
+
+    // Call serverless functions
+    const callServerlessFunction = async (userMessage: string): Promise<string> => {
+      const endpoints = ["/.netlify/functions/luna-ai", "/api/edge/luna"]
+      
+      for (const endpoint of endpoints) {
+        try {
+          const response = await fetch(endpoint, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              message: userMessage,
+              messages: messages.slice(-5)
+            })
+          })
+
+          if (response.ok) {
+            const data = await response.json()
+            return data.response || getStaticResponse(userMessage)
+          }
+        } catch (err) {
+          console.log(`Failed to call ${endpoint}:`, err)
+          continue
+        }
+      }
+      
+      throw new Error('All serverless endpoints failed')
+    }
+
+    // Direct Google AI API calls (client-side)
+    const callGoogleAIDirect = async (userMessage: string): Promise<string> => {
+      const apiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY
+      
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `You are Luna, the AI assistant for Vlyx Codes, created by Brajesh. 
+
+ABOUT VLYX CODES:
+- Founded by Brajesh (Lead Developer) and Co-founded by Aadish
+- Services: Custom websites, AI integration, SEO, dashboards, hosting solutions
+- Pricing: Basic ₹3,000, Standard ₹5,000, Premium ₹5,200+
+- Contact: vlyxcodes@gmail.com, +91 82710 81338
+- Recent projects: Luna AI, DPS Keoti Dashboard, Braj URL Shortener
+
+Be helpful, professional, and promote Vlyx Codes services when relevant.
+
+User message: ${userMessage}`
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.7,
+            topP: 0.95,
+            maxOutputTokens: 1000,
+          }
+        })
+      })
+
+      const data = await response.json()
+      return data.candidates?.[0]?.content?.parts?.[0]?.text || getStaticResponse(userMessage)
+    }
+
+    // Static fallback responses
+    const getStaticResponse = (userMessage: string): string => {
+      const lowerMessage = userMessage.toLowerCase()
+      
+      if (lowerMessage.includes('price') || lowerMessage.includes('cost')) {
+        return `🎯 **Vlyx Codes Pricing:**
+
+**Basic Plan: ₹3,000 ($42)**
+- 1-Page Website
+- Free Hosting & SSL
+- Basic SEO
+
+**Standard Plan: ₹5,000 ($72)**
+- Multi-Page Website  
+- Free Hosting & SSL
+- Advanced SEO
+
+**Premium Plan: ₹5,200+ ($75+)**
+- Custom Domain Included
+- All Premium Features
+
+**Custom AI Integration & Dashboards available on request!**
+
+Contact: vlyxcodes@gmail.com | +91 82710 81338`
+      }
+      
+      if (lowerMessage.includes('service') || lowerMessage.includes('what do you do')) {
+        return `🚀 **Vlyx Codes Services:**
+
+✅ **Custom Website Development**
+✅ **AI Integration & Chatbots** 
+✅ **Performance Optimization**
+✅ **SEO Optimization**
+✅ **Dashboard Development**
+✅ **URL Shortening Services**
+✅ **Innovative Hosting Solutions**
+
+**Recent AI Projects:**
+- Luna AI Assistant (me!) 🤖
+- DPS Keoti Dashboard
+- Braj URL Shortener
+- AI-powered exam systems
+
+Ready to build something amazing? Contact us!`
+      }
+      
+      if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
+        return `📞 **Contact Vlyx Codes:**
+
+**Email:** vlyxcodes@gmail.com
+**Phone:** +91 82710 81338
+**Location:** India
+
+**Follow Us:**
+🔗 Instagram: @vlyxcodes
+🔗 YouTube: @VlyxCodes
+
+**Founders:**
+👨‍💻 Brajesh (Founder & Lead Developer)
+👨‍💼 Aadish (Co-Founder & Business Development)
+
+We'd love to hear from you! 🚀`
+      }
+      
+      if (lowerMessage.includes('ai') || lowerMessage.includes('luna')) {
+        return `🤖 **About Luna AI:**
+
+I'm Luna, the AI assistant created by Brajesh for Vlyx Codes! 
+
+**AI Services We Offer:**
+✨ Custom AI Chatbots
+✨ Content Generation Systems  
+✨ AI-powered Dashboards
+✨ Intelligent Form Processing
+✨ Automated Customer Support
+
+**For enhanced AI capabilities**, we can set up:
+- Serverless AI functions 
+- Real-time AI responses
+- Custom AI backends
+- Advanced conversational AI
+
+Want full AI integration? Let's talk! 🚀`
+      }
+      
+      return `Hi! I'm Luna from Vlyx Codes! 🤖✨
+
+I can help you with:
+💼 **Services & Pricing Information**
+📞 **Contact Details**  
+🤖 **AI Integration Options**
+🚀 **Project Examples**
+
+**Available AI Modes:**
+- Smart Static Responses (current)
+- Serverless AI Functions
+- Real-time AI Integration
+
+What would you like to know about Vlyx Codes?`
+     }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
