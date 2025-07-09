@@ -20,10 +20,53 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
   const [messages, setMessages] = useState<Message[]>([
     {
       id: nanoid(),
-      role: "system",
-      content: "Hello! I'm Luna, your AI assistant. How can I help you today? ✨",
+      role: "assistant",
+      content: getInitialMessage(),
     },
   ])
+
+  // Get initial message with AI status
+  function getInitialMessage(): string {
+    const hasApiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY && process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY !== 'your_google_ai_api_key_here'
+    
+    if (hasApiKey) {
+      return `🤖✨ **Luna AI - Real AI Mode Activated!**
+
+Hi! I'm Luna, your AI assistant for Vlyx Codes, powered by Google's Gemini AI! 
+
+🔥 **AI Status**: ✅ Connected & Ready
+🚀 **Mode**: Real AI Conversations
+
+Ask me anything about Vlyx Codes or let's have a real conversation! I can help with:
+• Web development questions
+• Vlyx Codes services & pricing
+• AI integration projects
+• Technical discussions
+• General conversation
+
+What would you like to know? 🌟`
+    } else {
+      return `🤖✨ **Luna AI - Smart Mode**
+
+Hi! I'm Luna, your AI assistant for Vlyx Codes!
+
+📋 **Current Mode**: Smart Static Responses
+🔧 **Status**: Ready (Local development)
+
+I can help you with:
+• Vlyx Codes services & pricing
+• Contact information
+• Project examples
+• AI integration options
+
+**💡 Want Real AI?** Add your Google AI API key to \`.env.local\`:
+\`\`\`
+NEXT_PUBLIC_GOOGLE_AI_API_KEY=your_api_key_here
+\`\`\`
+
+What can I help you with today? 🚀`
+    }
+  }
   const [input, setInput] = useState("")
   const [isLoading, setIsLoading] = useState(false)
   const [selectedImage, setSelectedImage] = useState<File | null>(null)
@@ -106,19 +149,29 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
       let aiResponse = ""
       let aiMode = "static"
 
+      // Debug logging for development
+      console.log("🔍 Luna AI Debug:", {
+        hasApiKey: !!process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY,
+        apiKeyValue: process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY?.substring(0, 10) + '...',
+        environment: process.env.NODE_ENV
+      })
+
       // Try different AI approaches in order of preference
-      // 1. Try serverless functions first
+      // 1. Try serverless functions first (for deployed environments)
       if (await tryServerlessFunction(input)) {
+        console.log("✅ Using serverless function")
         aiResponse = await callServerlessFunction(input)
         aiMode = "serverless"
       }
-      // 2. Try direct API if key is available
-      else if (process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY) {
+      // 2. Try direct API if key is available (for local development)
+      else if (process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY && process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY !== 'your_google_ai_api_key_here') {
+        console.log("✅ Using direct Google AI API")
         aiResponse = await callGoogleAIDirect(input)
         aiMode = "google-direct"
       }
       // 3. Fall back to static responses
       else {
+        console.log("📋 Using static responses (no API key configured)")
         await new Promise(resolve => setTimeout(resolve, 1000)) // Simulate AI thinking
         aiResponse = getStaticResponse(input)
         aiMode = "static"
@@ -201,6 +254,8 @@ export default function LunaChatbot({ isOpen, onClose }: { isOpen: boolean; onCl
     const callGoogleAIDirect = async (userMessage: string): Promise<string> => {
       const apiKey = process.env.NEXT_PUBLIC_GOOGLE_AI_API_KEY
       
+      console.log("🚀 Calling Google AI API...")
+      
       const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -229,8 +284,24 @@ User message: ${userMessage}`
         })
       })
 
+      console.log("📡 Google AI API Response Status:", response.status)
+
+      if (!response.ok) {
+        const errorText = await response.text()
+        console.error("❌ Google AI API Error:", errorText)
+        throw new Error(`Google AI API Error: ${response.status} - ${errorText}`)
+      }
+
       const data = await response.json()
-      return data.candidates?.[0]?.content?.parts?.[0]?.text || getStaticResponse(userMessage)
+      console.log("✅ Google AI API Success:", data)
+      
+      const aiText = data.candidates?.[0]?.content?.parts?.[0]?.text
+      if (!aiText) {
+        console.warn("⚠️ No AI response text found, using fallback")
+        return getStaticResponse(userMessage)
+      }
+      
+      return aiText
     }
 
     // Static fallback responses
