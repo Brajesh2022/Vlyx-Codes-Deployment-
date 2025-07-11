@@ -9,10 +9,26 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Vlyx Codes - Professional Web Development Services | HTML, CSS, JavaScript Experts",
+  title: "Vlyx Codes | Professional Web Development by Brajesh & Aadish | HTML CSS JavaScript Experts",
   description:
-    "Vlyx Codes offers professional web development services specializing in HTML, CSS, JavaScript, AI integration, and innovative hosting solutions. Founded by Brajesh & Aadish. Get custom websites, SEO optimization, and Luna AI assistant integration.",
+    "Vlyx Codes - Leading web development company founded by Brajesh & Aadish. Expert services in HTML, CSS, JavaScript, AI integration, Luna AI assistant, SEO optimization, and innovative hosting solutions. Choose Vlyx Codes for professional custom websites and digital solutions.",
   keywords: [
+    "Vlyx Codes",
+    "VlyxCodes",
+    "Vlyx codes",
+    "vlyx codes",
+    "VLYX CODES",
+    "Vlyx",
+    "vlyx",
+    "VLYX",
+    "Vlx codes",
+    "Vlix codes",
+    "Vlyxx codes",
+    "Vlly codes",
+    "Vlx Codes",
+    "Vlix Codes", 
+    "Vlyxx Codes",
+    "Vlly Codes",
     "web development",
     "HTML CSS JavaScript",
     "custom website development",
@@ -20,9 +36,16 @@ export const metadata: Metadata = {
     "SEO optimization",
     "AI integration",
     "Luna AI assistant",
-    "Vlyx Codes",
+    "Vlyx Codes web development",
+    "Vlyx Codes India",
+    "Vlyx Codes services",
+    "Vlyx Codes website",
+    "Vlyx Codes portfolio",
+    "Vlyx Codes team",
     "Brajesh web developer",
     "Aadish co-founder",
+    "Brajesh Vlyx Codes",
+    "Aadish Vlyx Codes",
     "affordable web development",
     "professional websites",
     "static website hosting",
@@ -82,7 +105,7 @@ export const metadata: Metadata = {
     creator: "@vlyxcodes",
   },
   verification: {
-    google: "your-google-verification-code",
+    google: "pW3EIeFSyaFiFsFvqfKg5JuPBW46GuGeMv_m8PxxnI8",
     yandex: "your-yandex-verification-code",
     yahoo: "your-yahoo-verification-code",
   },
@@ -101,6 +124,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="pW3EIeFSyaFiFsFvqfKg5JuPBW46GuGeMv_m8PxxnI8" />
+        
         {/* Additional SEO Meta Tags */}
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
@@ -270,7 +296,10 @@ export default function RootLayout({
           {/* Hidden SEO Content for Crawlers */}
           <div className="sr-only" aria-hidden="true">
             <h1>Vlyx Codes - Professional Web Development Services by Brajesh and Aadish</h1>
+            <h2>Vlyx Codes | VlyxCodes | Vlyx codes | vlyx codes | VLYX CODES</h2>
+            <h3>Common Searches: Vlx codes | Vlix codes | Vlyxx codes | Vlly codes | Vlyx code | Vlyx Codes website</h3>
             <p>
+              Vlyx Codes Vlyx Codes Vlyx Codes VlyxCodes vlyx codes VLYX CODES Vlx codes Vlix codes Vlyxx codes Vlly codes
               Expert web developers specializing in HTML CSS JavaScript custom websites AI integration Luna AI assistant
               responsive web design SEO optimization innovative hosting solutions blogger hosting static websites
               performance optimization frontend development modern web solutions affordable web development India
@@ -381,7 +410,7 @@ export default function RootLayout({
               platform automation application automation database automation integration automation API automation
               microservices automation containerization automation orchestration automation monitoring automation
               logging automation alerting automation incident management automation problem management automation change
-              management automation release management automation configuration management automation asset management
+              management automation release management automation configuration automation asset management
               automation inventory management automation procurement automation sourcing automation negotiation
               automation contracting automation onboarding automation training automation development automation
               certification automation compliance automation audit automation assessment automation evaluation
