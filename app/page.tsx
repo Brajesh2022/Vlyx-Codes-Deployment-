@@ -9,9 +9,9 @@ import FloatingNav from "./components/floating-nav"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "Vlyx Codes - Home | Professional Web Development by Brajesh & Aadish",
+  title: "Vlyx Codes | Home - Innovative Web Development & AI Solutions",
   description:
-    "Welcome to Vlyx Codes - Expert web development services by founders Brajesh & Aadish. Specializing in custom websites, AI integration, Luna AI assistant, and innovative hosting solutions. Get your professional website today!",
+    "Innovative web development & AI solutions. Fast, affordable, and high-quality. Specializing in custom websites, AI integration, Luna AI assistant, and modern hosting solutions.",
   keywords: [
     "Vlyx Codes home",
     "web development portfolio",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
     "innovative hosting solutions",
   ],
   openGraph: {
-    title: "Vlyx Codes - Professional Web Development Services",
+    title: "Vlyx Codes - Innovative Web Development & AI Solutions",
     description:
-      "Expert web development by Brajesh & Aadish. Custom websites, AI integration, and innovative solutions.",
+      "Innovative web development & AI solutions. Fast, affordable, and high-quality. Custom websites, AI integration, and modern hosting solutions.",
     url: "https://vlyxcodes.com",
     type: "website",
   },
