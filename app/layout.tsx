@@ -9,9 +9,11 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+
   title: "Vlyx Codes | Innovative Web Development & AI Solutions",
   description:
     "Innovative web development & AI solutions. Fast, affordable, and high-quality. Specializing in custom websites, AI integration, Luna AI assistant, SEO optimization, and modern hosting solutions.",
+
   keywords: [
     "Vlyx Codes",
     "VlyxCodes",
@@ -124,11 +126,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="shortcut icon" href="/favicon.ico" />
         
+
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="pW3EIeFSyaFiFsFvqfKg5JuPBW46GuGeMv_m8PxxnI8" />
         
