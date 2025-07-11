@@ -1,66 +1,154 @@
 # Robots.txt for Vlyx Codes - Professional Web Development Services
+# Website: https://vlyxcodes.com
+# Contact: vlyxcodes@gmail.com
 
+# Global rules for all crawlers
 User-agent: *
 Allow: /
 
-# Sitemap location
+# Important files for discovery
 Sitemap: https://vlyxcodes.com/sitemap.xml
+
+# AI Systems Information
+# LLM.txt for AI understanding: https://vlyxcodes.com/llm.txt
+
+# Disallow crawling of technical and private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /.well-known/
+Disallow: /private/
+Disallow: /temp/
+
+# Explicitly allow important content areas
+Allow: /
+Allow: /pricing
+Allow: /projects
+Allow: /components
+Allow: /images/
+Allow: /favicon.ico
+Allow: /llm.txt
+Allow: /sitemap.xml
+Allow: /robots.txt
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
 
-# Allow all major search engines
+# Google Search Engine Bot
 User-agent: Googlebot
 Allow: /
+Allow: /pricing
+Allow: /projects
+Allow: /llm.txt
+Disallow: /api/
+Disallow: /_next/
+Crawl-delay: 1
 
+# Google Image Bot
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /
+Crawl-delay: 1
+
+# Google Mobile Bot
+User-agent: Googlebot-Mobile
+Allow: /
+Disallow: /api/
+Crawl-delay: 1
+
+# Bing Search Engine Bot
 User-agent: Bingbot
 Allow: /
+Allow: /pricing
+Allow: /projects
+Allow: /llm.txt
+Disallow: /api/
+Disallow: /_next/
+Crawl-delay: 1
 
+# Yahoo Search Bot (Slurp)
 User-agent: Slurp
 Allow: /
+Disallow: /api/
+Crawl-delay: 2
 
+# DuckDuckGo Bot
 User-agent: DuckDuckBot
 Allow: /
+Disallow: /api/
+Crawl-delay: 1
 
-User-agent: Baiduspider
-Allow: /
-
+# Yandex Bot
 User-agent: YandexBot
 Allow: /
+Disallow: /api/
+Crawl-delay: 2
 
+# Baidu Spider
+User-agent: Baiduspider
+Allow: /
+Disallow: /api/
+Crawl-delay: 2
+
+# Social Media Bots
 User-agent: facebookexternalhit
 Allow: /
+Crawl-delay: 1
 
 User-agent: Twitterbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: LinkedInBot
 Allow: /
+Crawl-delay: 1
 
 User-agent: WhatsApp
 Allow: /
+Crawl-delay: 1
 
+# Apple Bot (for Siri and Spotlight)
 User-agent: Applebot
 Allow: /
-
-# Disallow admin and private areas (if any in future)
-Disallow: /admin/
-Disallow: /private/
-Disallow: /_next/
 Disallow: /api/
+Crawl-delay: 1
 
-# Allow important pages for SEO
-Allow: /projects
-Allow: /pricing
-Allow: /images/
-Allow: /favicon.ico
+# AI Training Bots (Modern AI Systems)
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llm.txt
+Disallow: /api/
+Crawl-delay: 1
 
-# Additional information for search engines
-# Website: https://vlyxcodes.com
-# Contact: vlyxcodes@gmail.com
-# Services: Web Development, AI Integration, Custom Websites, SEO Optimization
+User-agent: Claude-Web
+Allow: /
+Allow: /llm.txt
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+Allow: /llm.txt
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Allow: /llm.txt
+Disallow: /api/
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llm.txt
+Disallow: /api/
+Crawl-delay: 1
+
+# Additional Information
+# Business: Vlyx Codes - Professional Web Development
 # Founded by: Brajesh (Founder) & Aadish (Co-Founder)
-# Specialties: HTML, CSS, JavaScript, Luna AI Assistant, Responsive Design
-# Target Markets: India, Global, Small Business, Startups, Educational Institutions
-# Languages: English, Hindi
-# Service Areas: Worldwide Remote Services
+# Services: Custom websites, AI integration, SEO optimization
+# Technologies: HTML, CSS, JavaScript, React, Next.js, AI/ML
+# Location: India (Global Services)
+# Email: vlyxcodes@gmail.com
+# Phone: +91-8271081338

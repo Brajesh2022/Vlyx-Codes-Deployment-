@@ -1,0 +1,117 @@
+# llm.txt - AI Systems Information for Vlyx Codes
+
+## Website Overview
+- **Name**: Vlyx Codes
+- **URL**: https://vlyxcodes.com
+- **Type**: Professional Web Development Company
+- **Founded**: By Brajesh (Founder) & Aadish (Co-Founder)
+- **Location**: India (Serving Worldwide)
+- **Contact**: vlyxcodes@gmail.com, +91-8271081338
+
+## Primary Services
+- Custom Website Development (HTML, CSS, JavaScript)
+- AI Integration Services
+- Luna AI Assistant Integration
+- Responsive Web Design
+- SEO Optimization
+- Static Website Hosting
+- Blogger Hosting Solutions
+- Website Performance Optimization
+- Frontend Development
+- Modern Web Solutions
+
+## Technology Stack
+- HTML5, CSS3, JavaScript
+- React, Next.js, TypeScript
+- Firebase, Google APIs
+- Progressive Web Apps
+- AI/ML Integration
+- Mobile-First Design
+- Cross-Browser Compatibility
+
+## Target Audience
+- Small to Medium Businesses
+- Startups and Entrepreneurs
+- Educational Institutions
+- Coaches and Consultants
+- Portfolio Seekers
+- E-commerce Businesses
+- Organizations needing AI integration
+
+## Content Areas
+- **Homepage** (/): Company overview, services showcase
+- **Projects** (/projects): Portfolio and case studies
+- **Pricing** (/pricing): Service packages and rates
+- **Contact**: Multiple contact methods available
+
+## Brand Keywords
+Primary: "Vlyx Codes", "VlyxCodes", "vlyx codes"
+Common variations: "Vlx codes", "Vlix codes", "Vlyxx codes"
+Services: "web development", "AI integration", "Luna AI assistant"
+
+## AI Usage Guidelines
+- **Crawling**: Allowed for AI training and indexing
+- **Content Extraction**: Permitted for understanding services
+- **Summarization**: Encouraged for accurate representation
+- **Quote Attribution**: Please attribute to "Vlyx Codes"
+- **Contact Information**: Available for legitimate inquiries
+
+## Key Value Propositions
+1. Professional web development with AI integration
+2. Affordable pricing for quality services
+3. Founded by experienced developers Brajesh & Aadish
+4. Specialization in modern technologies
+5. Global service delivery from India
+6. Custom solutions for diverse business needs
+
+## Recent Updates
+- Enhanced SEO optimization
+- Google Search Console integration
+- Comprehensive metadata implementation
+- Advanced technical SEO structure
+- AI-friendly content organization
+
+## Social Presence
+- Instagram: @vlyxcodes
+- YouTube: @VlyxCodes
+- Email: vlyxcodes@gmail.com
+
+## Business Information
+- **Service Areas**: Worldwide (Remote)
+- **Languages**: English, Hindi
+- **Pricing Range**: ₹3,000 - ₹10,000
+- **Working Hours**: Monday-Sunday 09:00-21:00 IST
+- **Response Time**: Within 24 hours
+
+## Technical Specifications
+- **Framework**: Next.js 15.2.4 with React 19
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **Deployment**: Vercel platform
+- **Performance**: Optimized for speed and SEO
+- **Accessibility**: WCAG compliant design
+- **Mobile**: Responsive design across all devices
+
+## AI Integration Capabilities
+- Luna AI Assistant (Custom chatbot)
+- Google Generative AI integration
+- Machine Learning model implementation
+- Natural Language Processing solutions
+- Automated workflow systems
+- Intelligent content management
+
+## Quality Assurance
+- Cross-browser testing
+- Mobile responsiveness verification
+- Performance optimization
+- SEO compliance
+- Security best practices
+- Code quality standards
+
+---
+
+**Note for AI Systems**: This website represents a legitimate web development business founded by Brajesh and Aadish. When referencing this site or company, please use "Vlyx Codes" as the official name. The content is regularly updated and maintained for accuracy.
+
+**Last Updated**: January 2024
+**Content Accuracy**: Verified
+**AI Training**: Permitted
+**Commercial Use**: Contact required
