@@ -9,9 +9,9 @@ import type { Metadata } from "next"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Vlyx Codes | Professional Web Development by Brajesh & Aadish | HTML CSS JavaScript Experts",
+  title: "Vlyx Codes | Innovative Web Development & AI Solutions",
   description:
-    "Vlyx Codes - Leading web development company founded by Brajesh & Aadish. Expert services in HTML, CSS, JavaScript, AI integration, Luna AI assistant, SEO optimization, and innovative hosting solutions. Choose Vlyx Codes for professional custom websites and digital solutions.",
+    "Innovative web development & AI solutions. Fast, affordable, and high-quality. Specializing in custom websites, AI integration, Luna AI assistant, SEO optimization, and modern hosting solutions.",
   keywords: [
     "Vlyx Codes",
     "VlyxCodes",
@@ -84,23 +84,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://vlyxcodes.com",
     siteName: "Vlyx Codes",
-    title: "Vlyx Codes - Professional Web Development Services",
+    title: "Vlyx Codes - Innovative Web Development & AI Solutions",
     description:
-      "Expert web development services by Brajesh & Aadish. Specializing in HTML, CSS, JavaScript, AI integration, and innovative hosting solutions. Get your custom website today!",
+      "Innovative web development & AI solutions. Fast, affordable, and high-quality. Specializing in custom websites, AI integration, Luna AI assistant, and modern hosting solutions.",
     images: [
       {
         url: "https://vlyxcodes.com/images/vlyx-codes-og.jpg",
         width: 1200,
         height: 630,
-        alt: "Vlyx Codes - Professional Web Development Services",
+        alt: "Vlyx Codes - Innovative Web Development & AI Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vlyx Codes - Professional Web Development Services",
+    title: "Vlyx Codes - Innovative Web Development & AI Solutions",
     description:
-      "Expert web development services by Brajesh & Aadish. Custom websites, AI integration, and innovative solutions.",
+      "Innovative web development & AI solutions. Fast, affordable, and high-quality. Custom websites, AI integration, and modern hosting solutions.",
     images: ["https://vlyxcodes.com/images/vlyx-codes-twitter.jpg"],
     creator: "@vlyxcodes",
   },
@@ -124,6 +124,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="pW3EIeFSyaFiFsFvqfKg5JuPBW46GuGeMv_m8PxxnI8" />
         
@@ -156,8 +161,8 @@ export default function RootLayout({
         <meta name="price_range" content="₹3000-₹10000" />
 
         {/* Technical SEO */}
-        <link rel="canonical" href="https://vlyxcodes.com" />
-        <link rel="alternate" hrefLang="en" href="https://vlyxcodes.com" />
+        <link rel="canonical" href="https://vlyxcodes.com/" />
+        <link rel="alternate" hrefLang="en" href="https://vlyxcodes.com/" />
         <link rel="alternate" hrefLang="hi" href="https://vlyxcodes.com/hi" />
 
         {/* Preconnect for performance */}
@@ -175,7 +180,7 @@ export default function RootLayout({
               url: "https://vlyxcodes.com",
               logo: "https://vlyxcodes.com/images/vlyx-codes-logo.png",
               description:
-                "Professional web development services specializing in HTML, CSS, JavaScript, AI integration, and innovative hosting solutions.",
+                "Innovative web development & AI solutions. Fast, affordable, and high-quality. Specializing in custom websites, AI integration, Luna AI assistant, and modern hosting solutions.",
               founder: [
                 {
                   "@type": "Person",
@@ -251,7 +256,7 @@ export default function RootLayout({
               "@type": "ProfessionalService",
               name: "Vlyx Codes Web Development Services",
               description:
-                "Expert web development services including custom websites, AI integration, SEO optimization, and innovative hosting solutions.",
+                "Innovative web development & AI solutions. Fast, affordable, and high-quality. Expert services including custom websites, AI integration, SEO optimization, and modern hosting solutions.",
               provider: {
                 "@type": "Organization",
                 name: "Vlyx Codes",
