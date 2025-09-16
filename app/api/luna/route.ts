@@ -148,7 +148,7 @@ export async function POST(request: Request) {
     }
 
     // Create a new chat session
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+    const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-lite" })
 
     // Prepare history without system messages
     const chatHistory = messages
