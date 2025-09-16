@@ -69,6 +69,56 @@ export default function ProjectsPage() {
   const projects = [
     {
       id: 1,
+      title: "NetVlyx - Movie Website",
+      description:
+        "I built a movie-streaming web app called Netvlyx! 🎬 It has a clean, ad-free interface for browsing and downloading publicly available content. I used advanced web scraping, frontend development, and optimization techniques to make it fast and user-friendly.",
+      image: "https://i.ibb.co/Qv9Yz6Yg/Netvlyx.jpg",
+      link: "https://netvlyx.vercel.app",
+      keywords:
+        "movie website, streaming web app, web scraping, frontend development, fast and user-friendly",
+    },
+    {
+      id: 2,
+      title: "Book.vlyx",
+      description:
+        "A free book discovery and download platform. This project utilizes web scraping techniques to aggregate search results from multiple sources, allowing users to find and download books from a single, free-to-use interface.",
+      image: "https://i.ibb.co/3DSW6Vy/Book-vlyx.png",
+      link: "https://vlyx-book.vercel.app/",
+      keywords:
+        "book discovery, download platform, web scraping, aggregate search results, free-to-use interface",
+    },
+    {
+      id: 3,
+      title: "FireVlyx",
+      description:
+        "A browser-based application for fast, secure deployment that provides a free .web.app domain. It connects directly to Firebase Hosting, allowing users to launch a site from a ZIP file or GitHub repository without any complex setup.",
+      image: "https://i.ibb.co/jvd1jWNd/FireVlyx.png",
+      link: "https://firevlyx.web.app/",
+      keywords:
+        "browser-based application, fast deployment, secure deployment, Firebase Hosting, ZIP file deployment, GitHub repository deployment",
+    },
+    {
+      id: 4,
+      title: "Vlyx.mod – A Mod APK Store",
+      description:
+        "A digital storefront project built to organize and display mod APKs. This project utilized web scraping techniques to gather and manage the core application data for the store.",
+      image: "https://i.ibb.co/R4z8V2zz/vlyx-mod.png",
+      link: "https://vlyx-mod.vercel.app/",
+      keywords:
+        "digital storefront, mod APKs, web scraping, application data management",
+    },
+    {
+      id: 5,
+      title: "Vlyx.ide",
+      description:
+        "A free, prompt-based code generation tool. This platform converts natural language requests into working code that is ready for immediate download or deployment, all with no setup required and support for popular AI APIs.",
+      image: "https://i.ibb.co/ks38pYb5/Vlyx-ide.png",
+      link: "https://vlyx-ide.vercel.app/",
+      keywords:
+        "code generation tool, prompt-based, natural language processing, AI APIs, no setup",
+    },
+    {
+      id: 6,
       title: "Ekagra Academy – Coaching Website",
       description:
         'Built a responsive WordPress website for Ekagra Academy, Darbhanga, ensuring smooth user experience and SEO optimization. The site is live on Google—search "Ekagra Academy Darbhanga" to view it.',
@@ -78,7 +128,7 @@ export default function ProjectsPage() {
         "coaching website, WordPress development, SEO optimization, responsive design, educational website, Ekagra Academy, Darbhanga coaching center",
     },
     {
-      id: 2,
+      id: 7,
       title: "DPS Keoti – School Website",
       description:
         "Developed a fully responsive website for DPS Keoti using HTML, CSS, and JavaScript for a fast and seamless experience. Features modern design with comprehensive school information and user-friendly navigation.",
@@ -88,7 +138,7 @@ export default function ProjectsPage() {
         "school website, HTML CSS JavaScript, responsive design, educational portal, DPS Keoti, modern web design, fast loading website",
     },
     {
-      id: 3,
+      id: 8,
       title: "Luna AI Assistant",
       description:
         "An intelligent AI assistant built for our Vlyx Codes website. Users can access Luna directly via the floating button at the bottom-right corner of the homepage for instant help and support.",
@@ -98,7 +148,7 @@ export default function ProjectsPage() {
         "AI assistant, Luna AI, chatbot development, artificial intelligence, customer support bot, AI integration, intelligent assistant, conversational AI",
     },
     {
-      id: 4,
+      id: 9,
       title: "Braj URL Shortener",
       description:
         "A powerful URL shortening tool that stores links using Firebase as the backend. Features analytics, custom short links, and a clean, modern interface for easy link management.",
@@ -108,17 +158,17 @@ export default function ProjectsPage() {
         "URL shortener, Firebase backend, link management, analytics, custom short links, web application, link tracking",
     },
     {
-      id: 5,
+      id: 10,
       title: "Vishal Mega Mart Security Guard Bharti Exam Site",
       description:
         "A viral and fun parody project featuring a fictional recruitment exam. Includes a subjective question-answer section reviewed by Luna AI, creating an engaging and humorous user experience.",
       image: "/images/vishal-mega-mart.jpeg",
       link: "https://vishal-mega-mart-bharti-exam.vercel.app/",
       keywords:
-        "viral website, parody project, recruitment exam, interactive website, humor website, engaging user experience, creative web development",
+        "viral website, parody project, recruitment exam, interactive website, humor website, engaging user experience,. creative web development",
     },
     {
-      id: 6,
+      id: 11,
       title: "DPS Keoti Dashboard",
       description:
         "A separate dashboard project built for DPS Keoti students and staff. Features secure authentication, student management, and comprehensive administrative tools for school operations.",
