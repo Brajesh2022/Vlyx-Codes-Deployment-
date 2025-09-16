@@ -1,7 +1,12 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
+import { Buffer } from "buffer"
 
-// Initialize the Google Generative AI with the API key
-const genAI = new GoogleGenerativeAI("AIzaSyAOoY7jmqopJ5q34ELVyNViSPEtQ8WUDw0")
+// Initialize the Google Generative AI with the API key from environment
+const apiKey = process.env.GOOGLE_API_KEY
+if (!apiKey) {
+  console.warn("[Luna API] Missing GOOGLE_API_KEY environment variable. Requests will fail until it is set.")
+}
+const genAI = new GoogleGenerativeAI(apiKey || "")
 
 // Luna's system instructions - updated with new roles and comprehensive information
 const LUNA_INSTRUCTIONS = `
@@ -147,8 +152,11 @@ export async function POST(request: Request) {
       return new Response("No user message or image found", { status: 400 })
     }
 
-    // Create a new chat session
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+    // Create a new chat session using latest Gemini model
+    const model = genAI.getGenerativeModel({
+      model: "gemini-2.5-flash-lite",
+      systemInstruction: LUNA_INSTRUCTIONS,
+    })
 
     // Prepare history without system messages
     const chatHistory = messages
@@ -158,7 +166,7 @@ export async function POST(request: Request) {
         parts: [{ text: msg.content }],
       }))
 
-    // Start chat with Luna's instructions
+    // Start chat with history; instructions are set via systemInstruction above
     const chat = model.startChat({
       history: chatHistory,
       generationConfig: {
@@ -190,11 +198,8 @@ export async function POST(request: Request) {
       })
     }
 
-    // Combine Luna's instructions with the user's message/image
-    const enhancedMessage = `${LUNA_INSTRUCTIONS}\n\n${lastUserMessage ? `User message: ${lastUserMessage}` : "User sent an image"}`
-
     // Send the message and get a streaming response
-    const result = await chat.sendMessageStream(messageParts.length > 1 ? messageParts : enhancedMessage)
+    const result = await chat.sendMessageStream(messageParts.length > 0 ? messageParts : [{ text: "" }])
 
     // Create a TransformStream to handle the streaming response
     const encoder = new TextEncoder()
