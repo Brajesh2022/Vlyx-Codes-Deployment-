@@ -34,7 +34,7 @@ WEBSITE INFORMATION:
 
 3. Services Offered:
    - Custom Website Development: Beautiful, responsive websites built with HTML, CSS, and JavaScript
-   - Innovative Hosting Solutions: Creative and cost-effective hosting using Blogger platform
+   - Innovative Hosting Solutions: Creative and cost-effective hosting using Blogger platform and Firebase
    - Performance Optimization: Converting slow WordPress sites into faster static websites
    - SEO Optimization: Improving website visibility in search engines
    - Custom JavaScript Solutions: Interactive features without heavy frameworks
@@ -43,8 +43,20 @@ WEBSITE INFORMATION:
    - Dashboard Development: Student management systems and administrative tools
    - URL Shortening Services: Custom URL management solutions
    - Viral Content Creation: Engaging, interactive web experiences
+   - Web Scraping Solutions: Data extraction and aggregation from multiple sources
+   - Movie/Entertainment Platforms: Streaming web apps with content discovery features
+   - Book Discovery Platforms: Free book search and download interfaces
+   - Deployment Tools: Browser-based applications for fast site deployment
+   - Digital Storefronts: Mod APK stores and application marketplaces
+   - Code Generation Tools: AI-powered platforms for natural language to code conversion
+   - Firebase Integration: Backend services and hosting solutions
 
 4. Recent Projects (2025):
+   - **NetVlyx - Movie Website** (https://netvlyx.vercel.app): A movie-streaming web app with a clean, ad-free interface for browsing and downloading publicly available content. Built using advanced web scraping, frontend development, and optimization techniques for fast and user-friendly experience.
+   - **Book.vlyx** (https://vlyx-book.vercel.app/): A free book discovery and download platform that utilizes web scraping techniques to aggregate search results from multiple sources, allowing users to find and download books from a single, free-to-use interface.
+   - **FireVlyx** (https://firevlyx.web.app/): A browser-based application for fast, secure deployment that provides a free .web.app domain. It connects directly to Firebase Hosting, allowing users to launch a site from a ZIP file or GitHub repository without any complex setup.
+   - **Vlyx.mod – A Mod APK Store** (https://vlyx-mod.vercel.app/): A digital storefront project built to organize and display mod APKs. This project utilized web scraping techniques to gather and manage the core application data for the store.
+   - **Vlyx.ide** (https://vlyx-ide.vercel.app/): A free, prompt-based code generation tool. This platform converts natural language requests into working code that is ready for immediate download or deployment, all with no setup required and support for popular AI APIs.
    - **Luna AI Assistant** (https://luna-by-vlyx.vercel.app/): An intelligent AI assistant built by Founder Brajesh for Vlyx Codes website. Users can access Luna directly via the floating button at the bottom-right corner of the homepage for instant help and support. This showcases the company's AI expertise.
    - **Braj URL Shortener** (https://braj-url.vercel.app/): A powerful URL shortening tool that stores links using Firebase as the backend. Features analytics, custom short links, and a clean, modern interface for easy link management.
    - **Vishal Mega Mart Security Guard Bharti Exam Site** (https://vishal-mega-mart-bharti-exam.vercel.app/): A viral and fun parody project featuring a fictional recruitment exam. Includes a subjective question-answer section reviewed by Luna AI, creating an engaging and humorous user experience.
@@ -115,14 +127,26 @@ WEBSITE INFORMATION:
     - Modern web technologies including React, Next.js, and TypeScript
     - Mobile-responsive design with proper viewport handling
     - Innovative hosting solutions and performance optimization
+    - Web Scraping Technologies: Advanced data extraction and aggregation from multiple sources
+    - Movie/Entertainment Platform Development: Streaming web apps with content discovery
+    - Book Discovery Systems: Free book search and download interfaces
+    - Deployment Automation: Browser-based applications for fast site deployment
+    - Digital Storefront Development: Mod APK stores and application marketplaces
+    - Code Generation Platforms: AI-powered natural language to code conversion tools
+    - Firebase Hosting Integration: Direct deployment from ZIP files and GitHub repositories
 
 12. Company Achievements:
-    - Successfully launched multiple viral web projects
+    - Successfully launched multiple viral web projects including entertainment and educational platforms
     - Pioneered AI integration in affordable web development
-    - Created innovative hosting solutions using unconventional platforms
+    - Created innovative hosting solutions using unconventional platforms (Blogger, Firebase)
     - Built comprehensive educational dashboards and management systems
     - Established strong social media presence and community engagement
     - Developed proprietary AI assistant technology (Luna)
+    - Created diverse web applications: movie streaming, book discovery, deployment tools, digital storefronts
+    - Mastered web scraping technologies for data aggregation and content discovery
+    - Built AI-powered code generation platforms for natural language to code conversion
+    - Developed browser-based deployment tools for instant site hosting
+    - Created entertainment platforms with clean, ad-free user experiences
 
 13. Additional Information:
     - All plans include free hosting with unlimited visitors
